@@ -13,12 +13,30 @@
   <div id = "app"></div>
   <script type="text/babel">
     class App extends React.Component {
+      state = {
+        name: 'Maya',
+        age: 18
+      }
+      theyDidAClick(e){
+        console.log(e.target);
+      }
+      theyDidAHover(e){
+        console.log(e.target, e.pageX);
+      }
+
+      theyDidACopy(e){
+        console.log('Try being original for once! jk ily');
+      }
+
       render() {
         return (
           <div className="app-content">
             <h1>Hey, ninjas</h1> 
-            <p>{}</p> 
-          </div>
+            <p>My name is { this.state.name } and I am { this.state.age }</p> 
+            <button onClick={this.theyDidAClick}>Click Me!</button>
+            <button onMouseOver={this.theyDidAHover}>Hover Me!</button>
+            <p onCopy={this.theyDidACopy}>What we think, we become</p>
+            </div>
         )
       }
     }
